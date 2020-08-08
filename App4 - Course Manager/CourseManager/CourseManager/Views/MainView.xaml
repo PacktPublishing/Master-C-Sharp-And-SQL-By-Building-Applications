@@ -1,0 +1,65 @@
+﻿<Window x:Class="CourseManager.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseManager.Views"
+        mc:Ignorable="d"
+        Title="Course Manager" Height="400" Width="800">
+    <Border Padding="10">
+
+        <StackPanel>
+
+            <TextBlock Text="Management Panel" FontWeight="Bold" Margin="0 10" />
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Column="0" Grid.Row="0" Margin="0 0 10 0">
+                    <TextBlock Text="Students" />
+                    <ComboBox ItemsSource="{Binding Path=Students}" DisplayMemberPath="FirstName" SelectedItem="{Binding Path=SelectedEnrollmentStudent, Mode=TwoWay}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="0" Margin="0 0 10 0">
+                    <TextBlock Text="Courses" />
+                    <ComboBox ItemsSource="{Binding Path=Courses}" DisplayMemberPath="Description" SelectedItem="{Binding Path=SelectedEnrollmentCourse, Mode=TwoWay}" />
+                </StackPanel>
+
+                <ListView Grid.Column="0" 
+                          Grid.Row="3" 
+                          Grid.ColumnSpan="2" 
+                          Margin="0 10 0 0" 
+                          Height="200"
+                          x:Name="Enrollments" 
+                          DisplayMemberPath="EnrollmentId"
+                          SelectedItem="{Binding Path=SelectedEnrollment, Mode=TwoWay}">
+
+                </ListView>
+
+            </Grid>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Save Enrollment" HorizontalAlignment="Left" Width="150" Margin="0 10 10 0" x:Name="SaveEnrollment" />
+
+                <Button Content="Create New Enrollment" HorizontalAlignment="Left" Width="150" Margin="0 10 10 0" x:Name="CreateNewEnrollment" />
+            </StackPanel>
+
+            <StatusBar Height="25" Margin="0 10 0 0">
+                <StatusBarItem TextBlock.TextAlignment="Left">
+                    <TextBlock Text="{Binding Path=AppStatus}"></TextBlock>
+                </StatusBarItem>
+            </StatusBar>
+
+        </StackPanel>
+        
+    </Border>
+</Window>
