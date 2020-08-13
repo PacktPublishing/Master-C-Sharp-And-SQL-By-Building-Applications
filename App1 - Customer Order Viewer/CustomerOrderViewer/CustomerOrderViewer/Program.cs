@@ -13,7 +13,7 @@ namespace CustomerOrderViewer
         {
             try
             {
-                CustomerOrderDetailCommand customerOrderDetailCommand = new CustomerOrderDetailCommand(@"Data Source=AVOCB59;Initial Catalog=CustomerOrderViewer;Integrated Security=True");
+                CustomerOrderDetailCommand customerOrderDetailCommand = new CustomerOrderDetailCommand(@"Data Source=localhost;Initial Catalog=CustomerOrderViewer;Integrated Security=True");
 
                 IList<CustomerOrderDetailModel> customerOrderDetailModels = customerOrderDetailCommand.GetList();
 

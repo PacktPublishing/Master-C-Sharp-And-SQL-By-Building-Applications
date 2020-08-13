@@ -8,7 +8,7 @@ namespace CustomerOrderViewer2._0
 {
     class Program
     {
-        private static string _connectionString = @"Data Source=AVOCB59;Initial Catalog=CustomerOrderViewer;Integrated Security=True";
+        private static string _connectionString = @"Data Source=localhost;Initial Catalog=CustomerOrderViewer;Integrated Security=True";
         private static readonly CustomerOrderDetailCommand _customerOrderDetailCommand = new CustomerOrderDetailCommand(_connectionString);
         private static readonly CustomerCommand _customerCommand = new CustomerCommand(_connectionString);
         private static readonly ItemCommand _itemCommand = new ItemCommand(_connectionString);

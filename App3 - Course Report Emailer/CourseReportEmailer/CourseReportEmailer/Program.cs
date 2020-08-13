@@ -14,7 +14,7 @@ namespace CourseReportEmailer
         {
             try
             {
-                EnrollmentDetailReportCommand command = new EnrollmentDetailReportCommand(@"Data Source=AVOCB59;Initial Catalog=CourseReport;Integrated Security=True");
+                EnrollmentDetailReportCommand command = new EnrollmentDetailReportCommand(@"Data Source=localhost;Initial Catalog=CourseReport;Integrated Security=True");
                 IList<EnrollmentDetailReportModel> models = command.GetList();
 
                 var reportFileName = "EnrollmentDetailsReport.xlsx";
