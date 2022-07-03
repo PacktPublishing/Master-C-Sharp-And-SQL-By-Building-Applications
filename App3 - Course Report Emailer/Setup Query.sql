@@ -1,6 +1,8 @@
 CREATE DATABASE CourseReport;
+GO
 
 USE CourseReport;
+GO
 
 CREATE TABLE [dbo].[Course] (
 	CourseId INT IDENTITY(1, 1) NOT NULL,
@@ -8,6 +10,7 @@ CREATE TABLE [dbo].[Course] (
 	[Description] VARCHAR(50) NOT NULL,
 	PRIMARY KEY (CourseId)
 );
+GO
 
 CREATE TABLE [dbo].[Student] (
 	StudentId INT IDENTITY(1, 1) NOT NULL,
@@ -15,6 +18,7 @@ CREATE TABLE [dbo].[Student] (
 	LastName VARCHAR(50) NOT NULL,
 	PRIMARY KEY (StudentId)
 );
+GO
 
 CREATE TABLE [dbo].[Enrollments] (
 	EnrollmentId INT IDENTITY(1, 1) NOT NULL,
@@ -24,6 +28,7 @@ CREATE TABLE [dbo].[Enrollments] (
 	FOREIGN KEY (StudentId) REFERENCES Student(StudentId),
 	FOREIGN KEY (CourseId) REFERENCES Course(CourseId)
 );
+GO
 
 -- Course
 INSERT INTO [dbo].[Course] (CourseCode, [Description]) VALUES ('AF', 'Accounting & Finance');
@@ -80,3 +85,4 @@ AS
 		[Description]
 	FROM 
 		[dbo].[EnrollmentReport]
+GO
