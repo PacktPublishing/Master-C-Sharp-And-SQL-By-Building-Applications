@@ -1,6 +1,8 @@
 CREATE DATABASE CustomerOrderViewer;
+GO
 
 USE CustomerOrderViewer;
+GO
 
 CREATE TABLE [dbo].[Customer] (
 	CustomerId INT IDENTITY(1, 1) NOT NULL,
@@ -10,6 +12,7 @@ CREATE TABLE [dbo].[Customer] (
 	Age INT NOT NULL,
 	PRIMARY KEY (CustomerId)
 );
+GO
 
 CREATE TABLE [dbo].[Item] (
 	ItemId INT IDENTITY(1, 1) NOT NULL,
@@ -17,6 +20,7 @@ CREATE TABLE [dbo].[Item] (
 	Price DECIMAL(4, 2) NOT NULL,
 	PRIMARY KEY (ItemId)
 );
+GO
 
 CREATE TABLE [dbo].[CustomerOrder] (
 	CustomerOrderId INT IDENTITY(1,1) NOT NULL,
@@ -26,6 +30,7 @@ CREATE TABLE [dbo].[CustomerOrder] (
 	FOREIGN KEY (CustomerId) REFERENCES Customer(CustomerId),
 	FOREIGN KEY (ItemId) REFERENCES Item (ItemId)
 );
+GO
 
 INSERT INTO [dbo].[Customer] (FirstName, MiddleName, LastName, Age) VALUES ('Lawrence', NULL, 'Keener', 27);
 INSERT INTO [dbo].[Customer] (FirstName, MiddleName, LastName, Age) VALUES ('Lynette', NULL, 'Snyder', 34);
@@ -91,3 +96,4 @@ CREATE VIEW [dbo].[CustomerOrderDetail] AS
 		dbo.Customer t2 ON t2.CustomerId = t1.CustomerId
 	INNER JOIN
 		dbo.Item t3 ON t3.ItemId = t1.ItemId;
+GO
